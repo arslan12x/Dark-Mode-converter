@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, 
+                   initial-scale=1.0"
+    />
+    <title>
+      How to Make Dark Mode for Websites using HTML CSS & JavaScript ?
+    </title>
+    <style>
+      #myDIV {
+        background-image: url("https://getwallpapers.com/wallpaper/full/b/1/0/26514.jpg");
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 28px;
+      }
+
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+      }
+
+      input:checked + .slider {
+        background-color: #2196f3;
+      }
+
+      input:focus + .slider {
+        box-shadow: 0 0 1px #2196f3;
+      }
+
+      input:checked + .slider:before {
+        -webkit-transform: translateX(20px);
+        -ms-transform: translateX(20px);
+        transform: translateX(20px);
+      }
+
+      .slider.round {
+        border-radius: 34px;
+      }
+
+      .slider.round:before {
+        border-radius: 50%;
+      }
+
+      form {
+        margin: 0 auto;
+        width: 400px;
+        padding: 1em;
+        border: 1px solid #ccc;
+        border-radius: 1em;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      form li + li {
+        margin-top: 1em;
+      }
+
+      label {
+        display: inline-block;
+        width: 90px;
+        text-align: right;
+      }
+
+      input,
+      textarea {
+        font: 1em sans-serif;
+        width: 300px;
+        box-sizing: border-box;
+        border: 1px solid #999;
+      }
+
+      textarea {
+        vertical-align: top;
+        height: 5em;
+      }
+
+      .button {
+        padding-left: 90px;
+      }
+
+      button {
+        margin-left: 0.5em;
+      }
+
+      body {
+        padding: 20px;
+        background-color: white;
+        color: black;
+        font-size: 20px;
+      }
+
+      .dark-mode {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body id="myDIV">
+    <h2>Dark mode converter</h2>
+    <form id="myForm" action="/action_page.php">
+      <ul>
+        <li>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="user_name" />
+        </li>
+
+        <li>
+          <label for="mail">E-mail:</label>
+          <input type="email" id="mail" name="user_mail" />
+        </li>
+
+        <li>
+          <label for="msg">Message:</label>
+          <textarea id="msg" name="user_message"></textarea>
+        </li>
+
+        <li class="button">
+          <input
+            type="button"
+            onclick="myFunction()"
+            value="Send your message"
+          />
+        </li>
+      </ul>
+    </form>
+    <div>
+      <h5>Dark Mode</h5>
+      <label class="switch">
+        <input
+          type="checkbox"
+          onclick="darkMode(); changeBackground();"
+          unchecked
+        />
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <script>
+      function myFunction() {
+        document.getElementById("myForm").submit();
+      }
+      let backgroundImageToggle = false;
+
+      function darkMode() {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+      }
+
+      function changeBackground() {
+        var element = document.getElementById("myDIV");
+        if (backgroundImageToggle) {
+          element.style.backgroundImage =
+            "url('https://getwallpapers.com/wallpaper/full/b/1/0/26514.jpg')";
+          backgroundImageToggle = false;
+        } else {
+          element.style.backgroundImage =
+            "url('https://images.wallpaperscraft.com/image/single/code_lines_programming_130775_2048x1152.jpg')";
+          backgroundImageToggle = true;
+        }
+      }
+    </script>
+  </body>
+</html>
